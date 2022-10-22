@@ -26,14 +26,15 @@ def ask_questions(ques_num):
         make sure user is on correct page
         ask question and submit answer
     """
-
-    if (len(responses) != ques_num):
-        flash("Invalid question page")
-        return redirect(f"/questions/{len(responses)}")
+    if (responses is None):
+        return redirect("/")
 
     if (len(responses) == len(satisfaction_survey.questions)):
         return redirect("/thank_you")
 
+    if (len(responses) != ques_num):
+        flash("Invalid question page")
+        return redirect(f"/questions/{len(responses)}")
 
     question = satisfaction_survey.questions[ques_num]
     return render_template("questions.html", question_num=ques_num, question=question)
