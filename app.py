@@ -34,7 +34,7 @@ def ask_questions(ques_num):
 
     if (len(responses) != ques_num):
         flash("Invalid question page")
-        return redirect(f"/questions/{len(responses)}")
+        return redirect("/thank_you")
 
     question = satisfaction_survey.questions[ques_num]
     return render_template("questions.html", question_num=ques_num, question=question)

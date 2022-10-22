@@ -2,6 +2,11 @@
 
 {% block title %}Thank You!{% endblock %}
 
+{% for mesg in get_flashed_messages() %}
+<h3>{{ mesg }}</h3>
+{% endfor %}
+
+
 {% block content %}
     <h2>Thank you for your input!</h2>
     <form action="/">
